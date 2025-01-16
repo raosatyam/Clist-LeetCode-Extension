@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "LeetCode Problem Rating",
+    "version": "1.0",
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [{
+        "matches": ["https://leetcode.com/problems/*"],
+        "js": ["config.js", "contentScript.js"]
+    }],
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Question Rating"
+    }
+}

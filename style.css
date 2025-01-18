@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+body {
+    width: 320px;
+    background: #1a1a1a;
+    color: #ffffff;
+    padding: 16px;
+}
+
+.container {
+    background: #282828;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content styles */
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #404040;
+}
+
+.header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffa116;
+    margin: 0;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.problem-card {
+    background: #333333;
+    border-radius: 6px;
+    padding: 12px;
+    transition: transform 0.2s;
+}
+
+.problem-card:hover {
+    transform: translateY(-2px);
+}
+
+.label {
+    font-size: 12px;
+    color: #808080;
+    margin-bottom: 4px;
+}
+
+.value {
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 500;
+}
+
+/* Rating styles */
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.rating {
+    display: inline-flex;
+    align-items: center;
+    background: #373737;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Error state styles */
+.error-container {
+    width: 286px;
+    padding: 20px;
+    text-align: center;
+    background-color: #282828;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.error-icon {
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.error-heading {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.error-text {
+    color: #808080;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+/* Star rating styles */
+.stars {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.star {
+    font-size: 16px;
+}
+/* 
+.rating-beginner { color: #00b8a3; }
+.rating-easy { color: #40a954; }
+.rating-medium { color: #ffa116; }
+.rating-hard { color: #ff375f; }
+.rating-expert { color: #ff2d55; }
+.rating-master { color: #bb2ef8; }
+.rating-grandmaster { color: #ff0000; } */
+
+.rating-beginner { color: gray; }
+.rating-easy { color: green; }
+.rating-medium { color: #03A89E; }
+.rating-hard { color: blue; }
+.rating-expert { color: #a0a; }
+.rating-master { color: #FF8C00; }
+.rating-grandmaster { color: #ff0000; }
+
+.rating {color: #ffffff;}
+
+/* Hide/Show content */
+.hidden {
+    display: none;
+}

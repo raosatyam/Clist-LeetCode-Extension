@@ -16,3 +16,5 @@
 Here is an example of how your extension can display the rating for a LeetCode problem:
 
 ![LeetCode Rating Image](example_image.png)
+
+

@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Question Rating</title>
     <meta charset="utf-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>LeetCode Problem Rating</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container mt-3" style="width: 450px;">
-        <h2 class="text-center">Question Rating</h2>
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Problem Name</th>
-                    <th>Rating</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td id="name"></td>
-                    <td id="rating"></td>
-                </tr>
-            </tbody>
-        </table>
+    <!-- Main content container -->
+    <div id="mainContent" class="container">
+        <div class="header">
+            <h1>Problem Rating</h1>
+        </div>
+        <div class="content">
+            <div class="problem-card">
+                <div class="label">Problem Name</div>
+                <div class="value" id="name">Loading...</div>
+            </div>
+            <div class="problem-card">
+                <div class="label">Difficulty Rating</div>
+                <div class="rating-container">
+                    <div class="rating" id="rating">--</div>
+                    <div class="stars" id="stars"></div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Error state container -->
+    <div id="errorContent" class="error-container hidden">
+        <div class="error-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" 
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+        </div>
+        <h4 class="error-heading">Please navigate to a LeetCode problem page to view its rating</h4>
+        <p class="error-text">Example: leetcode.com/problems/two-sum</p>
+    </div>
+
     <script src="popup.js"></script>
 </body>
 </html>

@@ -1,0 +1,7 @@
+# Ignore actual config with API keys
+config.js
+
+# Ignore other sensitive files
+.env
+.env.local
+*.pem

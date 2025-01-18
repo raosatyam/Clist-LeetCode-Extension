@@ -1,16 +1,6 @@
 // Store the latest data
 let latestData = null;
 
-// Helper function to check if a tab is available for messaging
-async function isTabAvailable(tabId) {
-    try {
-        await chrome.tabs.get(tabId);
-        return true;
-    } catch {
-        return false;
-    }
-}
-
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === "getCurrentPageUrl") {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
@@ -22,30 +12,30 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         });
         return true; // Keep the message channel open
     } 
-    else if (message.action === "updateData") {
-        // Store the data
-        if (message.data) {
+    else if (message.action === "storeData") {
+        // Store the data in chrome.storage.session
+        chrome.storage.session.set({
+            leetcodeProblemData: {
+                url: message.url,
+                data: message.data,
+                timestamp: Date.now()
+            }
+        }).then(() => {
             latestData = message.data;
-        }
-        
-        // Only try to relay if there's a popup to receive it
-        try {
-            chrome.runtime.sendMessage(message).catch(() => {
-                // Suppress errors when popup isn't open
-                console.log("Popup not available, data stored");
+            // Try to update popup if it's open
+            chrome.runtime.sendMessage({
+                action: "updateData",
+                data: message.data
+            }).catch(() => {
+                // Suppress error if popup is not open
+                console.log("Popup not open, data stored in session storage");
             });
-        } catch (error) {
-            console.log("Error sending message, but data is stored:", error);
-        }
-    } 
-    else if (message.action === "getLatestData") {
-        sendResponse({ data: latestData });
+        });
+    }
+    else if (message.action === "getStoredData") {
+        chrome.storage.session.get('leetcodeProblemData', (result) => {
+            sendResponse(result);
+        });
         return true;
     }
-});
-
-// Handle errors when sending messages
-chrome.runtime.onMessageExternal.addListener((message, sender, sendResponse) => {
-    sendResponse({ error: "External messaging not supported" });
-    return true;
 });

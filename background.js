@@ -15,7 +15,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     else if (message.action === "storeData") {
         // Store the data in chrome.storage.session
         chrome.storage.session.set({
-            leetcodeProblemData: {
+            ProblemData: {
                 url: message.url,
                 data: message.data,
                 timestamp: Date.now()
@@ -33,7 +33,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         });
     }
     else if (message.action === "getStoredData") {
-        chrome.storage.session.get('leetcodeProblemData', (result) => {
+        chrome.storage.session.get('ProblemData', (result) => {
             sendResponse(result);
         });
         return true;

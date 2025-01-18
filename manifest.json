@@ -17,7 +17,13 @@
         "service_worker": "background.js"
     },
     "content_scripts": [{
-        "matches": ["https://leetcode.com/problems/*"],
+        "matches": [
+                "https://leetcode.com/problems/*",
+                "https://codeforces.com/*/problem/*",
+                "https://toph.co/p/*",
+                "https://www.codechef.com/problems/*",
+                "https://hackerrank.com/*/problem"
+            ],
         "js": ["config.js", "contentScript.js"]
     }],
     "action": {

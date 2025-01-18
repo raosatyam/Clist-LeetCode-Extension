@@ -22,6 +22,17 @@ function processLeetcodeUrl() {
         //     processedUrl = currentUrl.split('?slug')[0];
         // }
         fetchData(processedUrl);
+    } else if (currentUrl.includes('codeforces.com') && currentUrl.includes('/problem/')) {
+        processedUrl = currentUrl.replace("https", "http");
+        fetchData(processedUrl);
+    } else if (currentUrl.includes('toph.co') && currentUrl.includes('/p/')) {
+        fetchData(currentUrl);
+    } else if (currentUrl.includes('atcoder.jp') && currentUrl.includes('/tasks/')) {
+        fetchData(currentUrl);
+    } else if (currentUrl.includes('codechef.com') && currentUrl.includes('/problems/')) {
+        fetchData(currentUrl);
+    } else if (currentUrl.includes('hackerrank.com') && currentUrl.includes('/problem')) {
+        fetchData(currentUrl);
     }
 }
 

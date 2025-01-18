@@ -9,13 +9,59 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             // Try to get stored data through background script
             chrome.runtime.sendMessage({ action: "getStoredData" }, (response) => {
-                if (response.leetcodeProblemData) {
+                if (response.ProblemData) {
                     const processedUrl = currentUrl.split('description')[0];
                     
                     // Check if stored data is for current URL
-                    if (response.leetcodeProblemData.url === processedUrl) {
+                    if (response.ProblemData.url === processedUrl) {
                         console.log('Using stored data');
-                        updatePopup(response.leetcodeProblemData.data);
+                        updatePopup(response.ProblemData.data);
+                        return;
+                    }
+                }
+
+                // If no stored data or different URL, fetch new data
+                console.log('Fetching new data');
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    action: "fetchData",
+                    url: currentUrl
+                });
+            });
+        } else if (currentUrl.includes('hackerrank.com') && currentUrl.includes('/problem')) {
+            mainContent.classList.remove('hidden');
+            errorContent.classList.add('hidden');
+
+            // Try to get stored data through background script
+            chrome.runtime.sendMessage({ action: "getStoredData" }, (response) => {
+                if (response.ProblemData) {
+                    // Check if stored data is for current URL
+                    if (response.ProblemData.url === currentUrl) {
+                        console.log('Using stored data');
+                        updatePopup(response.ProblemData.data);
+                        return;
+                    }
+                }
+
+                // If no stored data or different URL, fetch new data
+                console.log('Fetching new data');
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    action: "fetchData",
+                    url: currentUrl
+                });
+            });
+        } else if (currentUrl.includes('codeforces.com') && currentUrl.includes('/problem/')) {
+            mainContent.classList.remove('hidden');
+            errorContent.classList.add('hidden');
+
+            // Try to get stored data through background script
+            chrome.runtime.sendMessage({ action: "getStoredData" }, (response) => {
+                if (response.ProblemData) {
+                    const processedUrl = currentUrl.replace("https", "http");
+                    
+                    // Check if stored data is for current URL
+                    if (response.ProblemData.url === processedUrl) {
+                        console.log('Using stored data');
+                        updatePopup(response.ProblemData.data);
                         return;
                     }
                 }

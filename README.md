@@ -1,20 +1,69 @@
 # LeetCode Problem Rating Extension
 
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/youruser/leetcode-rating)
+
+A Chrome extension that displays competitive programming ratings for LeetCode problems, helping you choose problems that match your skill level.
+
+## Features
+- Display problem ratings from competitive programming contests
+- Real-time rating updates
+- Clean and intuitive interface
+- Secure API key management
+
+## Screenshots
+<div style="display: flex; justify-content: center; align-items: center; gap: 20px; padding: 20px;">
+    <div style="width: 400px; height: 300px;">
+        <img src="./images/example_rating.png" alt="LeetCode Rating Image" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+    <div style="width: 400px; height: 300px;">
+        <img src="./images/example_no_rating.png" alt="LeetCode NO Rating Image" style="width: 100%; height: 100%; object-fit: contain;">
+    </div>
+</div>
+
 ## Setup
+
+### Prerequisites
+- Chromium-based Browser
+- CLIST API Key ([Get it here](https://clist.by/api/v4/doc/))
+
+### Installation Steps
 1. Clone the repository
-2. Copy `config.example.js` to `config.js`
-3. Replace `YOUR_API_KEY_HERE` in `config.js` with your actual API key which you can get from [CLIST API Documentation](https://clist.by/api/v4/doc/)
-4. Load the extension in Chrome
+   ```bash
+   git clone https://github.com/youruser/leetcode-rating-extension.git
+   cd leetcode-rating-extension
+   ```
 
-## Security Notes
-- Never commit your `config.js` file with real API keys
-- The API key will still be visible in the extension source code to users who inspect the extension
-- For complete security, consider implementing a backend service that handles API calls
-
-## Example Question Rating
-
-Here is an example of how your extension can display the rating for a LeetCode problem:
-
-![LeetCode Rating Image](example_image.png)
+2. Configure API Key
+   ```bash
+   cp config.example.js config.js
+   ```
+   Edit `config.js` and replace `YOUR_API_KEY_HERE` with your CLIST API key
 
 
+3. Load the Extension
+   - Open Chrome
+   - Navigate to `chrome://extensions/`
+   - Enable "Developer Mode" in top-right corner
+   - Click "Load unpacked"
+   - Select the extension directory
+
+## Usage
+1. Pin the extension to your Chrome toolbar
+2. Navigate to any LeetCode problem
+3. View the problem's rating automatically
+
+## Contributing
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/improvement`)
+3. Commit your changes (`git commit -m 'Add improvement'`)
+4. Push to the branch (`git push origin feature/improvement`)
+5. Open a Pull Request
+
+## Acknowledgments
+- CLIST API for providing rating data
+- LeetCode platform
+- All contributors specially <b>claude.ai</b>
+
+## Contact
+- GitHub Issues: [Create an issue](https://github.com/raosatyam/Clist-LeetCode-Extension/issues)
+- Email: roronoaatwork@gmail.com

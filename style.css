@@ -83,7 +83,6 @@ body {
 
 /* Error state styles */
 .error-container {
-    width: 286px;
     padding: 20px;
     text-align: center;
     background-color: #282828;

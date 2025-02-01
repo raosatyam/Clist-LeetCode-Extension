@@ -11,14 +11,17 @@ A Chrome extension that displays competitive programming ratings for LeetCode pr
 - Secure API key management
 
 ## Screenshots
-<div style="display: flex; justify-content: center; align-items: center; gap: 20px; padding: 20px;">
-    <div style="width: 400px; height: 300px;">
-        <img src="./images/example_rating.png" alt="LeetCode Rating Image" style="width: 100%; height: 100%; object-fit: contain;">
-    </div>
-    <div style="width: 400px; height: 300px;">
-        <img src="./images/example_no_rating.png" alt="LeetCode NO Rating Image" style="width: 100%; height: 100%; object-fit: contain;">
-    </div>
-</div>
+<table style="width: 100%; border-collapse: collapse; border: none;">
+  <tr>
+    <td style="width: 50%; padding: 10px; ">
+      <img src="./images/example_rating.png" alt="LeetCode Rating Image" style="width: 100%;"/>
+    </td>
+    <td style="width: 50%; padding: 10px;">
+      <img src="./images/example_no_rating.png" alt="LeetCode NO Rating Image" style="width: 100%;"/>
+    </td>
+  </tr>
+</table>
+
 
 ## Setup
 
